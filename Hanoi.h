@@ -1,17 +1,24 @@
 #include<iostream>
 
-using namespace std;
-
 class Hanoi{
 
   public :
 
-    void move(int n,char from,char to){
-      cout<<"Move disk "<<n<<" from "
-      <<from<<" to "<<to<<"\n";
+    static void printMove(
+      int n,
+      char from,
+      char to){
+
+        std::cout<<"Move disk "<<n<<" from "
+        <<from<<" to "<<to<<"\n";
     }
 
-    void solve(
+
+    // eg. from A to B using C as 
+    // intermediate (auxillary = aux)
+    // first put from->aux 
+    // then aux->destination
+    static void solve(
       int n ,
       char from,
       char to,
@@ -19,14 +26,18 @@ class Hanoi{
 
         //1 disk is easy to move
         if(n==1){
-          move(n,from,to);
+          printMove(n,from,to);
+          return ;
         }
 
         //otherwise recursive move
         //n -1 disks into aux 
-        solve(n-1,from,)
-
+        solve(n-1,from,aux,to);
 
         //and nth disk in aux
+        printMove(n,from,to);
+
+        //and now the n-1 from aux into to ;)
+        solve(n-1,aux,to,from);
       }
 };
