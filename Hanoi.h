@@ -11,13 +11,14 @@ class Hanoi{
 
         std::cout<<"Move disk "<<n<<" from "
         <<from<<" to "<<to<<"\n";
+        
     }
 
 
-    // eg. from A to B using C as 
-    // intermediate (auxillary = aux)
-    // first put from->aux 
-    // then aux->destination
+    // eg. from A to B using C as  
+    // intermediate (auxillary = aux) 
+    // first put from A->aux C 
+    // then aux C->destination B 
     static void solve(
       int n ,
       char from,
